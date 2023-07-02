@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import thumbsUp from '../assets/thumbs up.svg'
 import thumbsDown from '../assets/thumbs down.svg'
+import x from '../assets/x.svg'
 
 const StreamerList = ({ streamers, onVote, onDelete }) => {
   const handleVote = (streamerId, voteType) => {
@@ -18,15 +19,12 @@ const StreamerList = ({ streamers, onVote, onDelete }) => {
       {streamers.map((streamer) => (
         <div key={streamer.id}>
           <h3>{streamer.name}</h3>
-          {/* <p>Description: {streamer.description}</p> */}
           <p>Platform: {streamer.platform}</p>
-          {/* <p>Upvotes: {streamer.upvotes}</p> */}
-          {/* <p>Downvotes: {streamer.downvotes}</p> */}
-          <p>Votes Difference: {streamer.upvotes - streamer.downvotes}</p>
+          <p>Rating: {streamer.upvotes - streamer.downvotes}</p>
           <img className='icon thumbs-up' src={thumbsUp} alt='thumbsUp' onClick={() => handleVote(streamer.id, 'upvote')}/> 
           <img className='icon thumbs-down' src={thumbsDown} alt='thumbsdown' onClick={() => handleVote(streamer.id, 'downvote')}/>
-          <button onClick={() => handleDeleteStreamer(streamer.id)}>Delete</button>
-          <button><Link to={`/streamers/${streamer.id}`}>View Details</Link></button>
+          <Link className='link' to={`/streamers/${streamer.id}`}>View Details</Link>
+          <img className='icon x' src={x} alt='delete' onClick={() => handleDeleteStreamer(streamer.id)}/>
         </div>
       ))}
     </div>
