@@ -1,0 +1,69 @@
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 769px) and (max-width: 1023px) {
+    @content
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content
+  }
+}
+
+
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+@mixin enhanceAnimations() {
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  
+  // stoping flickering on chrome
+  // -webkit-transform-style: preserve-3d;
+  // -webkit-perspective: 1000;
+  // -webkit-backface-visibility: hidden;    
+}
+
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// hack to remove scrollbars from chrome and IE
+@mixin hideScroll(){
+	-ms-overflow-style: none;
+	&::-webkit-scrollbar { width: 0 !important }
+}
+
+// Sidebar Widget / Full width container mixin
+@mixin contentWidth($container-width) {
+  width: $container-width;
+}

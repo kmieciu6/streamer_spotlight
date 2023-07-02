@@ -1,0 +1,30 @@
+.streamer_form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .form {
+        display: flex;
+        max-width: 60%;
+
+        label {
+            margin: 0 1rem;
+
+            input, select, textarea{
+                margin: 1rem 0;
+                border-radius: 5px;
+                border: none;
+                padding: 0.2rem 0.5rem;
+                width: 16rem;
+            }
+        }
+
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        border: none;
+    }
+}

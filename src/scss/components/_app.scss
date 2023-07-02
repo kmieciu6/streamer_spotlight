@@ -1,0 +1,24 @@
+.app {
+    padding-top: 2rem;
+    background: $background-color;
+    
+    nav {
+        text-align: center;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+
+        .nav {
+            padding: .5rem;
+            text-decoration: none;
+            color: black;
+            font-size: 1.6rem;
+            border-bottom: 1px solid transparent;
+            transition: 0.7s;
+
+            &:hover {
+                color: red;
+                border-bottom: 1px solid red;
+            }
+        }
+    }
+}
